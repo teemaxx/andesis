@@ -1,0 +1,15 @@
+{
+  "name": "andesis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devices": "node ./devices/both.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "mqtt": "^4.3.6"
+  }
+}
