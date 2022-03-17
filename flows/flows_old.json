@@ -1,275 +1,11 @@
 [
     {
-        "id": "38915ce0cb416152",
-        "type": "tab",
-        "label": "Alarm System",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "0d15d62507971bf7",
         "type": "tab",
         "label": "Heating Systems",
         "disabled": false,
         "info": "",
         "env": []
-    },
-    {
-        "id": "27e79a2e2f0f06a1",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "localhost",
-        "port": "1800",
-        "clientid": "node-red",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "sessionExpiry": ""
-    },
-    {
-        "id": "0c86641747d1233f",
-        "type": "mqtt-broker",
-        "name": "",
-        "broker": "localhost",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "5",
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "willMsg": {},
-        "sessionExpiry": ""
-    },
-    {
-        "id": "1c89379dba1bc891",
-        "type": "mqtt in",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "topic": "sensors/motion",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "0c86641747d1233f",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 100,
-        "wires": [
-            [
-                "3f8e84f353327595"
-            ]
-        ]
-    },
-    {
-        "id": "3f8e84f353327595",
-        "type": "json",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 310,
-        "y": 100,
-        "wires": [
-            [
-                "9c742b72445c58c2"
-            ]
-        ]
-    },
-    {
-        "id": "cb35b6ee37a067b6",
-        "type": "mqtt in",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "topic": "appliances/alarm",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "0c86641747d1233f",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 140,
-        "y": 200,
-        "wires": [
-            [
-                "d4c045a7ae5672f3"
-            ]
-        ]
-    },
-    {
-        "id": "d4c045a7ae5672f3",
-        "type": "json",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 340,
-        "y": 200,
-        "wires": [
-            [
-                "63bb7d779482fd6b"
-            ]
-        ]
-    },
-    {
-        "id": "63bb7d779482fd6b",
-        "type": "debug",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "23e80f69b041be37",
-        "type": "inject",
-        "z": "38915ce0cb416152",
-        "name": "set alarm on",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"id\":\"alarm-garage-dev\",\"name\":\"Alarm System Garage Appliance\",\"source\":\"device\",\"running\":true,\"act\":true,\"value\":\"Someone's in da house!!!\"}",
-        "payloadType": "json",
-        "x": 160,
-        "y": 320,
-        "wires": [
-            [
-                "622764a1e53edc66"
-            ]
-        ]
-    },
-    {
-        "id": "5ca417124c4d491d",
-        "type": "inject",
-        "z": "38915ce0cb416152",
-        "name": "set alarm off",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"id\":\"alarm-garage-dev\",\"name\":\"Alarm System Garage Appliance\",\"source\":\"device\",\"running\":false,\"act\":true,\"value\":\"Don't know anything!!!\"}",
-        "payloadType": "json",
-        "x": 150,
-        "y": 380,
-        "wires": [
-            [
-                "622764a1e53edc66"
-            ]
-        ]
-    },
-    {
-        "id": "622764a1e53edc66",
-        "type": "mqtt out",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "topic": "appliances/alarm",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0c86641747d1233f",
-        "x": 400,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "cfefe63cc1d4035c",
-        "type": "mqtt out",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "topic": "appliances/alarm",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "0c86641747d1233f",
-        "x": 670,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "9c742b72445c58c2",
-        "type": "function",
-        "z": "38915ce0cb416152",
-        "name": "",
-        "func": "msg.payload = {\n      id: 'alarm-garage-dev',\n      name: 'Motion Garage Sensor',\n      type: 'motion',\n      source: 'device',\n      value: msg.payload.value,\n      act: true\n      \n    }\n\n\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 480,
-        "y": 100,
-        "wires": [
-            [
-                "cfefe63cc1d4035c"
-            ]
-        ]
     },
     {
         "id": "53eb8abdbb7770f1",
@@ -545,5 +281,31 @@
         "x": 1370,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "0c86641747d1233f",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     }
 ]
