@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "cb888fdabec03d58",
+        "type": "tab",
+        "label": "Boiler System",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "27e79a2e2f0f06a1",
         "type": "mqtt-broker",
         "name": "",
@@ -940,5 +948,134 @@
                 "f3fdeb694eebce27"
             ]
         ]
+    },
+    {
+        "id": "44a76b97d507d8e5",
+        "type": "mqtt in",
+        "z": "cb888fdabec03d58",
+        "name": "",
+        "topic": "appliances/boiler",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0c86641747d1233f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "fb040bef2bf35f1b"
+            ]
+        ]
+    },
+    {
+        "id": "cb2a2660af26f2d1",
+        "type": "debug",
+        "z": "cb888fdabec03d58",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "fb040bef2bf35f1b",
+        "type": "json",
+        "z": "cb888fdabec03d58",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "cb2a2660af26f2d1"
+            ]
+        ]
+    },
+    {
+        "id": "03260f3193415ab3",
+        "type": "inject",
+        "z": "cb888fdabec03d58",
+        "name": "boiler on",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"boiler-dev\",\"running\":true,\"act\":true}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "70f67ca07e9c13e2"
+            ]
+        ]
+    },
+    {
+        "id": "fbea2f165b5fa9da",
+        "type": "inject",
+        "z": "cb888fdabec03d58",
+        "name": "boiler off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"boiler-dev\",\"running\":false,\"act\":true}",
+        "payloadType": "json",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "70f67ca07e9c13e2"
+            ]
+        ]
+    },
+    {
+        "id": "70f67ca07e9c13e2",
+        "type": "mqtt out",
+        "z": "cb888fdabec03d58",
+        "name": "",
+        "topic": "appliances/boiler",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0c86641747d1233f",
+        "x": 500,
+        "y": 220,
+        "wires": []
     }
 ]
