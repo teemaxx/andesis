@@ -1,6 +1,6 @@
 /**
-* This is a sample script that simulates the behaviour of a
-* heating system.
+* This is a sample script that simulates the behaviour of an
+* alarm system.
 */
 const CronJob = require('cron').CronJob;
 
