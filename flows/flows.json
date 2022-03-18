@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "67834fece6ef099f",
+        "type": "tab",
+        "label": "Lighting System",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "27e79a2e2f0f06a1",
         "type": "mqtt-broker",
         "name": "",
@@ -545,5 +553,392 @@
         "x": 1370,
         "y": 460,
         "wires": []
+    },
+    {
+        "id": "797dbfb3a5b04977",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light bedroom on",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-bedroom-dev\",\"turned_on\":true,\"act\":true}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "220c08073a9e7201"
+            ]
+        ]
+    },
+    {
+        "id": "0b9b580b2c614ee7",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light bedroom off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-bedroom-dev\",\"turned_on\":false,\"act\":true}",
+        "payloadType": "json",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "220c08073a9e7201"
+            ]
+        ]
+    },
+    {
+        "id": "220c08073a9e7201",
+        "type": "mqtt out",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/bedroom",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0c86641747d1233f",
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "43965cb14e627d47",
+        "type": "mqtt in",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/bedroom",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0c86641747d1233f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "eecfcbb2f318e958"
+            ]
+        ]
+    },
+    {
+        "id": "41c4fbbe104ae226",
+        "type": "debug",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "eecfcbb2f318e958",
+        "type": "json",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "41c4fbbe104ae226"
+            ]
+        ]
+    },
+    {
+        "id": "add4e533a5626c5b",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light bathroom on",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-bathroom-dev\",\"turned_on\":true,\"act\":true}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 400,
+        "wires": [
+            [
+                "d6c9cbcabba32013"
+            ]
+        ]
+    },
+    {
+        "id": "2df97225163c0897",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light bathroom off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-bathroom-dev\",\"turned_on\":false,\"act\":true}",
+        "payloadType": "json",
+        "x": 180,
+        "y": 480,
+        "wires": [
+            [
+                "d6c9cbcabba32013"
+            ]
+        ]
+    },
+    {
+        "id": "d6c9cbcabba32013",
+        "type": "mqtt out",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/bathroom",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0c86641747d1233f",
+        "x": 520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8874535d202abaa2",
+        "type": "mqtt in",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/bathroom",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0c86641747d1233f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "9e73e598d88767da"
+            ]
+        ]
+    },
+    {
+        "id": "f169d7e2d2d8f617",
+        "type": "debug",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "9e73e598d88767da",
+        "type": "json",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 400,
+        "y": 580,
+        "wires": [
+            [
+                "f169d7e2d2d8f617"
+            ]
+        ]
+    },
+    {
+        "id": "1436e2b0d464b091",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light kitchen on",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-kitchen-dev\",\"turned_on\":true,\"act\":true}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 700,
+        "wires": [
+            [
+                "f222478c49198024"
+            ]
+        ]
+    },
+    {
+        "id": "7778a99715bf03d6",
+        "type": "inject",
+        "z": "67834fece6ef099f",
+        "name": "light kitchen off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"light-kitchen-dev\",\"turned_on\":false,\"act\":true}",
+        "payloadType": "json",
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "f222478c49198024"
+            ]
+        ]
+    },
+    {
+        "id": "f222478c49198024",
+        "type": "mqtt out",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/kitchen",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0c86641747d1233f",
+        "x": 540,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "d3b91ec7ab700b78",
+        "type": "mqtt in",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "topic": "appliances/light/kitchen",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "0c86641747d1233f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 880,
+        "wires": [
+            [
+                "5978956ffe8b198b"
+            ]
+        ]
+    },
+    {
+        "id": "f3fdeb694eebce27",
+        "type": "debug",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5978956ffe8b198b",
+        "type": "json",
+        "z": "67834fece6ef099f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 420,
+        "y": 880,
+        "wires": [
+            [
+                "f3fdeb694eebce27"
+            ]
+        ]
     }
 ]
